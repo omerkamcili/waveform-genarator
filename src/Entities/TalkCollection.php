@@ -8,6 +8,15 @@ namespace WaveformGenerator\Entity;
  */
 class TalkCollection
 {
+	/**
+	 * @var float
+	 */
+	protected float $longestMonologue;
+
+	/**
+	 * @var float
+	 */
+	protected float $talk_percentage;
 
 	/**
 	 * TalkCollection constructor.
@@ -48,5 +57,38 @@ class TalkCollection
 	public function setTalks(array $talks): void
 	{
 		$this->talks = $talks;
+	}
+
+
+	/**
+	 * @return float
+	 */
+	public function getLongestMonologue(): float
+	{
+		return $this->longestMonologue;
+	}
+
+	/**
+	 * @param float $longestMonologue
+	 */
+	public function setLongestMonologue(float $longestMonologue): void
+	{
+		$this->longestMonologue = $longestMonologue;
+	}
+
+	/**
+	 * @return float
+	 */
+	public function getTalkPercentage(): float
+	{
+		return $this->talk_percentage;
+	}
+
+	/**
+	 * @param float $talk_percentage
+	 */
+	public function setTalkPercentage(float $talk_percentage): void
+	{
+		$this->talk_percentage = $talk_percentage;
 	}
 }
