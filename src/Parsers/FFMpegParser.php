@@ -13,11 +13,10 @@ class FFMpegParser implements ParserInterface
 {
 	/**
 	 * @param ChannelInterface $channel
-	 * @return array
+	 * @return Talk[]
 	 */
 	public function parse(ChannelInterface $channel): array
 	{
 		// TODO: Implement parse() method.
 	}
-
 }
