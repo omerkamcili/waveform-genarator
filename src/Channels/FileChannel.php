@@ -1,8 +1,8 @@
 <?php
 
-namespace Channels;
+namespace WaveformGenerator\Channels;
 
-use Exception;
+use WaveformGeneratorException;
 
 /**
  * Class FileChannel
@@ -19,12 +19,12 @@ class FileChannel implements ChannelInterface
 	 * FileChannel constructor.
 	 * @param string $channelName
 	 * @param string $filePath
-	 * @throws Exception
+	 * @throws WaveformGeneratorException
 	 */
 	public function __construct(protected string $channelName, protected string $filePath)
 	{
 		if (!is_file($this->filePath)) {
-			throw new Exception(sprintf('The channel file doesn\'t exist %s', $$this->filePath));
+			throw new WaveformGeneratorException(sprintf('The channel file doesn\'t exist %s', $$this->filePath));
 		}
 	}
 

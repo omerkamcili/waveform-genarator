@@ -1,14 +1,13 @@
 <?php
 
-use Channels\FileChannel;
+use WaveformGenerator\Channels\FileChannel;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class FileChannelTest
+ * Class FileChannelTests
  */
-class FileChannelTest extends TestCase
+class FileChannelTests extends TestCase
 {
-
 	public function testGetLines()
 	{
 		$expectedLines = [

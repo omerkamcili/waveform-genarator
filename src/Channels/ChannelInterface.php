@@ -1,6 +1,6 @@
 <?php
 
-namespace Channels;
+namespace WaveformGenerator\Channels;
 
 /**
  * Interface ChannelInterface

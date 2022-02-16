@@ -1,5 +1,5 @@
 {
-  "name": "bilyanasenov/ffmpeg-silence",
+  "name": "bilyanasenov/waveform-genarator",
   "description": "Detect ffmpeg silence and make it useful format",
   "type": "library",
   "require": {
@@ -13,7 +13,9 @@
   ],
   "minimum-stability": "dev",
   "autoload": {
-	"classmap": ["src/"]
+	"classmap": [
+	  "src/"
+	]
   },
   "require-dev": {
 	"phpunit/phpunit": "^9"
