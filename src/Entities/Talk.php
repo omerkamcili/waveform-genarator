@@ -2,11 +2,13 @@
 
 namespace WaveformGenerator\Entity;
 
+use JsonSerializable;
+
 /**
  * Class Talk
  * @package Converter
  */
-class Talk
+class Talk implements JsonSerializable
 {
 	/**
 	 * Talk constructor.
@@ -47,5 +49,13 @@ class Talk
 	public function setEnd(float $end): void
 	{
 		$this->end = $end;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function jsonSerialize(): array
+	{
+		return get_object_vars($this);
 	}
 }

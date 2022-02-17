@@ -2,11 +2,13 @@
 
 namespace WaveformGenerator\Entity;
 
+use JsonSerializable;
+
 /**
  * Class TalkCollection
  * @package Converter
  */
-class TalkCollection
+class TalkCollection implements JsonSerializable
 {
 	/**
 	 * @var float
@@ -59,7 +61,6 @@ class TalkCollection
 		$this->talks = $talks;
 	}
 
-
 	/**
 	 * @return float
 	 */
@@ -90,5 +91,13 @@ class TalkCollection
 	public function setTalkPercentage(float $talk_percentage): void
 	{
 		$this->talk_percentage = $talk_percentage;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function jsonSerialize(): array
+	{
+		return get_object_vars($this);
 	}
 }
