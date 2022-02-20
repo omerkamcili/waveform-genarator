@@ -42,4 +42,29 @@ class ConverterTest extends TestCase
 		$this->assertInstanceOf(Talk::class, $talks[0]);
 		$this->assertInstanceOf(Talk::class, $talks[1]);
 	}
+
+	public function testGetTalkCollections()
+	{
+		// TODO: Implement testGetTalkCollections
+	}
+
+	public function testGetLongestMonologueFromChannel()
+	{
+		// TODO: Implement testGetLongestMonologueFromChannel
+	}
+
+	public function testGetChannelTalkPercentage()
+	{
+		// TODO: Implement testGetLongestMonologueFromChannel
+	}
+
+	public function testGetTotalTime()
+	{
+		// TODO: Implement testGetTotalTime
+	}
+
+	public function testGetTotalTalksTimeFromChannel()
+	{
+		// TODO: Implement testGetTotalTalksTimeFromChannel
+	}
 }
