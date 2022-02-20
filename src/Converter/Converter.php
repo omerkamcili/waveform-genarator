@@ -60,10 +60,15 @@ class Converter
 	}
 
 	/**
-	 * @param Talk[] $talks
+	 * @param string $channel
 	 * @return float
 	 */
-	public function getLongestMonologueFromTalks(array $talks): float
+	public function getLongestMonologueFromChannel(string $channel): float
+	{
+
+	}
+
+	public function getChannelTalkPercentage(string $channel): float
 	{
 
 	}
