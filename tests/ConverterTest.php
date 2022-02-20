@@ -24,7 +24,7 @@ class ConverterTest extends TestCase
 		$this->assertEquals($channel, $converter->getChannel('test_channel'));
 	}
 
-	public function testConverterGetTalks()
+	public function testConverterGetChannelTalks()
 	{
 		$parser = $this->createMock(ParserInterface::class);
 		$parser->method('parse')->willReturn([
