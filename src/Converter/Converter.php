@@ -16,7 +16,7 @@ class Converter
 {
 
 	/**
-	 * @var array
+	 * @var ChannelInterface[]
 	 */
 	protected array $channels;
 
@@ -24,7 +24,6 @@ class Converter
 	 * @var array
 	 */
 	protected array $channelTalks;
-
 
 	/**
 	 * Converter constructor.
@@ -60,8 +59,8 @@ class Converter
 	{
 		$collections = [];
 		foreach ($this->channels as $channel) {
-			$talksFromChannel = $this->getChannelTalks($channel);
-			$collection = new TalkCollection($channel, $talksFromChannel);
+			$talksFromChannel = $this->getChannelTalks($channel->getChannelName());
+			$collection = new TalkCollection($channel->getChannelName(), $talksFromChannel);
 			array_push($collections, $collection);
 		}
 

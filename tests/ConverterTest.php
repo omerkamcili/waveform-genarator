@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use WaveformGenerator\Channels\ChannelInterface;
 use WaveformGenerator\Entity\Talk;
+use WaveformGenerator\Entity\TalkCollection;
 use WaveformGenerator\Parsers\ParserInterface;
 use WaveformGenerator\Converter\Converter;
 
@@ -45,7 +46,26 @@ class ConverterTest extends TestCase
 
 	public function testGetTalkCollections()
 	{
-		// TODO: Implement testGetTalkCollections
+		$parser = $this->createMock(ParserInterface::class);
+		$parser->method('parse')->willReturn([
+			new Talk(1.2, 2.3),
+			new Talk()
+		]);
+
+		$channel = $this->createMock(ChannelInterface::class);
+		$channel->method('getChannelName')->willReturn('test_channel');
+
+		$converter = new Converter($parser);
+		$converter->addChannel($channel);
+
+		$talksCollections = $converter->getTalkCollections();
+		$talksFromCollection = $talksCollections[0]->getTalks();
+		$this->assertInstanceOf(TalkCollection::class, $talksCollections[0]);
+		$this->assertInstanceOf(Talk::class, $talksFromCollection[0]);
+		$this->assertInstanceOf(Talk::class, $talksFromCollection[1]);
+		$this->assertEquals(1.2, $talksFromCollection[0]->getStart());
+		$this->assertEquals(2.3, $talksFromCollection[0]->getEnd());
+
 	}
 
 	public function testGetLongestMonologueFromChannel()

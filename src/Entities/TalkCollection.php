@@ -46,7 +46,7 @@ class TalkCollection implements JsonSerializable
 	}
 
 	/**
-	 * @return array
+	 * @return Talk[]
 	 */
 	public function getTalks(): array
 	{
