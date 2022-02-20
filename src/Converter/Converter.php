@@ -13,6 +13,12 @@ use WaveformGenerator\Parsers\ParserInterface;
  */
 class Converter
 {
+
+	/**
+	 * @var array
+	 */
+	protected array $channels;
+
 	/**
 	 * Converter constructor.
 	 * @param ParserInterface $parser
@@ -20,11 +26,6 @@ class Converter
 	public function __construct(protected ParserInterface $parser)
 	{
 	}
-
-	/**
-	 * @var array
-	 */
-	protected array $channels;
 
 	/**
 	 * @param ChannelInterface $channel
