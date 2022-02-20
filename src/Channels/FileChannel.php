@@ -19,9 +19,10 @@ class FileChannel implements ChannelInterface
 	 * FileChannel constructor.
 	 * @param string $channelName
 	 * @param string $filePath
+	 * @param float $totalTime
 	 * @throws WaveformGeneratorException
 	 */
-	public function __construct(protected string $channelName, protected string $filePath)
+	public function __construct(protected string $channelName, protected string $filePath, protected float $totalTime)
 	{
 		if (!is_file($this->filePath)) {
 			throw new WaveformGeneratorException(sprintf('The channel file doesn\'t exist %s', $$this->filePath));
@@ -52,5 +53,13 @@ class FileChannel implements ChannelInterface
 	public function getChannelName(): string
 	{
 		return $this->channelName;
+	}
+
+	/**
+	 * @return float
+	 */
+	public function getTotalTime(): float
+	{
+		return $this->getTotalTime();
 	}
 }

@@ -20,6 +20,8 @@ class FFMpegParserTest extends TestCase
 			'[silencedetect @ 0x7fbfbbc076a0] silence_end: 19.712 | silence_duration: 5.712'
 		]);
 
+		$channel->method('getTotalTime')->willReturn(25.424);
+
 		$parser = new FFMpegParser();
 		$talks = $parser->parse($channel);
 
@@ -35,6 +37,5 @@ class FFMpegParserTest extends TestCase
 
 		$this->assertEquals(19.712, $talks[2]->getStart());
 		$this->assertEquals(25.424, $talks[2]->getEnd());
-
 	}
 }

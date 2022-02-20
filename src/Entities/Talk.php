@@ -15,7 +15,7 @@ class Talk implements JsonSerializable
 	 * @param float $start
 	 * @param float $end
 	 */
-	public function __construct(protected float $start, protected float $end)
+	public function __construct(protected float $start = 0.00, protected float $end = 0.00)
 	{
 	}
 
