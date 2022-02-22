@@ -70,21 +70,66 @@ class ConverterTest extends TestCase
 
 	public function testGetLongestMonologueFromChannel()
 	{
-		// TODO: Implement testGetLongestMonologueFromChannel
+		$parser = $this->createMock(ParserInterface::class);
+		$parser->method('parse')->willReturn([
+			new Talk(1.2, 2.3),
+			new Talk(30.2, 50.4),
+			new Talk(55, 80.5),
+			new Talk(90, 90.3)
+		]);
+
+		$channel = $this->createMock(ChannelInterface::class);
+		$channel->method('getChannelName')->willReturn('test_channel');
+
+		$converter = new Converter($parser);
+		$converter->addChannel($channel);
+
+		$totalTalksTime = $converter->getLongestMonologueFromChannel('test_channel');
+		$this->assertEquals(25.5, $totalTalksTime);
 	}
 
 	public function testGetChannelTalkPercentage()
 	{
-		// TODO: Implement testGetLongestMonologueFromChannel
+		$parser = $this->createMock(ParserInterface::class);
+		$parser->method('parse')->willReturn([
+			new Talk(10, 20.00)
+		]);
+
+		$channel = $this->createMock(ChannelInterface::class);
+		$channel->method('getChannelName')->willReturn('test_channel');
+
+		$converter = new Converter($parser, 40);
+		$converter->addChannel($channel);
+
+		$channelTalkPercentage = $converter->getChannelTalkPercentage('test_channel');
+		$this->assertEquals(25.0, $channelTalkPercentage);
 	}
 
 	public function testGetTotalTime()
 	{
-		// TODO: Implement testGetTotalTime
+		$parser = $this->createMock(ParserInterface::class);
+		$channel = $this->createMock(ChannelInterface::class);
+		$channel->method('getChannelName')->willReturn('test_channel');
+
+		$converter = new Converter($parser, 30.4);
+		$this->assertEquals(30.4, $converter->getTotalTime());
 	}
 
 	public function testGetTotalTalksTimeFromChannel()
 	{
-		// TODO: Implement testGetTotalTalksTimeFromChannel
+		$parser = $this->createMock(ParserInterface::class);
+		$parser->method('parse')->willReturn([
+			new Talk(1.2, 2.3),
+			new Talk(10.4, 20.5)
+		]);
+
+		$channel = $this->createMock(ChannelInterface::class);
+		$channel->method('getChannelName')->willReturn('test_channel');
+
+		$converter = new Converter($parser);
+		$converter->addChannel($channel);
+
+		$totalTalksTime = $converter->getTotalTalksTimeFromChannel('test_channel');
+		$this->assertEquals(11.2, $totalTalksTime);
 	}
 }

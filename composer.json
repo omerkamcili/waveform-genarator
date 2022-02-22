@@ -1,5 +1,5 @@
 {
-  "name": "bilyanasenov/waveform-genarator",
+  "name": "omerkamcili/waveform-genarator",
   "description": "Detect ffmpeg silence and make it useful format",
   "type": "library",
   "require": {

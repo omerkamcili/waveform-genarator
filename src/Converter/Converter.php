@@ -73,7 +73,17 @@ class Converter
 	 */
 	public function getLongestMonologueFromChannel(string $channelName): float
 	{
-		// TODO: Implement getLongestMonologueFromChannel
+		$longest = 0.00;
+		$talks = $this->getChannelTalks($channelName);
+
+		foreach ($talks as $talk) {
+			$duration = $talk->getEnd() - $talk->getStart();
+			if ($duration > $longest) {
+				$longest = $duration;
+			}
+		}
+
+		return $longest;
 	}
 
 	/**
@@ -87,7 +97,10 @@ class Converter
 			throw new WaveformGeneratorException('Need to define total meet time for talk percentage');
 		}
 
-		// TODO: Implement getChannelTalkPercentage
+		$totalTalksTime = $this->getTotalTalksTimeFromChannel($channelName);
+		$totalTime = $this->getTotalTime();
+
+		return number_format($totalTalksTime / ($totalTime / 100), 2);
 
 	}
 
@@ -119,7 +132,13 @@ class Converter
 	 */
 	public function getTotalTalksTimeFromChannel(string $channelName): float
 	{
-		// TODO: Implement getTotalTalksTimeFromChannel
+		$total = 0.00;
+		$talks = $this->getChannelTalks($channelName);
+
+		foreach ($talks as $talk) {
+			$total += $talk->getEnd() - $talk->getStart();
+		}
+		return $total;
 	}
 
 }
