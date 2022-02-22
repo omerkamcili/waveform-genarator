@@ -18,7 +18,7 @@ class TalkCollection implements JsonSerializable
 	/**
 	 * @var float
 	 */
-	protected float $talk_percentage;
+	protected float $talkPercentage;
 
 	/**
 	 * TalkCollection constructor.
@@ -82,15 +82,15 @@ class TalkCollection implements JsonSerializable
 	 */
 	public function getTalkPercentage(): float
 	{
-		return $this->talk_percentage;
+		return $this->talkPercentage;
 	}
 
 	/**
-	 * @param float $talk_percentage
+	 * @param float $talkPercentage
 	 */
-	public function setTalkPercentage(float $talk_percentage): void
+	public function setTalkPercentage(float $talkPercentage): void
 	{
-		$this->talk_percentage = $talk_percentage;
+		$this->talkPercentage = $talkPercentage;
 	}
 
 	/**

@@ -54,6 +54,7 @@ class Converter
 
 	/**
 	 * @return TalkCollection[]
+	 * @throws WaveformGeneratorException
 	 */
 	public function getTalkCollections(): array
 	{
@@ -61,6 +62,8 @@ class Converter
 		foreach ($this->channels as $channel) {
 			$talksFromChannel = $this->getChannelTalks($channel->getChannelName());
 			$collection = new TalkCollection($channel->getChannelName(), $talksFromChannel);
+			$collection->setLongestMonologue($this->getLongestMonologueFromChannel($channel->getChannelName()));
+			$collection->setTalkPercentage($this->getChannelTalkPercentage($channel->getChannelName()));
 			array_push($collections, $collection);
 		}
 

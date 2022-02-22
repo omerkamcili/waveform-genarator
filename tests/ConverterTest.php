@@ -49,13 +49,13 @@ class ConverterTest extends TestCase
 		$parser = $this->createMock(ParserInterface::class);
 		$parser->method('parse')->willReturn([
 			new Talk(1.2, 2.3),
-			new Talk()
+			new Talk(5, 10)
 		]);
 
 		$channel = $this->createMock(ChannelInterface::class);
 		$channel->method('getChannelName')->willReturn('test_channel');
 
-		$converter = new Converter($parser);
+		$converter = new Converter($parser, 20);
 		$converter->addChannel($channel);
 
 		$talksCollections = $converter->getTalkCollections();
@@ -65,6 +65,8 @@ class ConverterTest extends TestCase
 		$this->assertInstanceOf(Talk::class, $talksFromCollection[1]);
 		$this->assertEquals(1.2, $talksFromCollection[0]->getStart());
 		$this->assertEquals(2.3, $talksFromCollection[0]->getEnd());
+		$this->assertEquals(5.0, $talksCollections[0]->getLongestMonologue());
+		$this->assertEquals(30.5, $talksCollections[0]->getTalkPercentage());
 
 	}
 
