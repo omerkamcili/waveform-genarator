@@ -86,7 +86,7 @@ class Converter
 			}
 		}
 
-		return number_format($longest, 2);
+		return round($longest, 2);
 	}
 
 	/**
@@ -103,7 +103,7 @@ class Converter
 		$totalTalksTime = $this->getTotalTalksTimeFromChannel($channelName);
 		$totalTime = $this->getTotalTime();
 
-		return number_format($totalTalksTime / ($totalTime / 100), 2);
+		return round($totalTalksTime / ($totalTime / 100), 2);
 
 	}
 
@@ -141,7 +141,7 @@ class Converter
 		foreach ($talks as $talk) {
 			$total += $talk->getEnd() - $talk->getStart();
 		}
-		return number_format($total, 2);
+		return round($total, 2);
 	}
 
 }
