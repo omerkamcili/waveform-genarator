@@ -86,7 +86,7 @@ class Converter
 			}
 		}
 
-		return $longest;
+		return number_format($longest, 2);
 	}
 
 	/**
@@ -141,7 +141,7 @@ class Converter
 		foreach ($talks as $talk) {
 			$total += $talk->getEnd() - $talk->getStart();
 		}
-		return $total;
+		return number_format($total, 2);
 	}
 
 }
