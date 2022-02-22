@@ -58,6 +58,9 @@ Getting just talks percentage from channel
 $converter->getChannelTalkPercentage('customer_channel');
 ```
 
+## Example
+Here you can find an implementation example https://github.com/omerkamcili/waveform-example
+
 ## Maintainers
 
 - Bilyan Asenov
