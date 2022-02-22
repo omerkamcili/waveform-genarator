@@ -5,7 +5,7 @@ This package solves a real-world problem related to converting an audio file int
 ## Installation
 
 ````
-composer install omerkamcili/waveform-genarator
+composer require omerkamcili/waveform-genarator
 ````
 
 ## Usage example
