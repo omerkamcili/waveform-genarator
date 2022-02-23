@@ -27,10 +27,9 @@ In case for example you have a detected file like customer_channel.txt and it lo
 [silencedetect @ 0x7fbfbbc076a0] silence_end: 49.792 | silence_duration: 2.512
 ```
 
-Create a channel and provide parameters (channel name, raw output from silence-detect, total meet time)
+Create a channel and provide parameters (channel name, raw output from silence-detect)
 ```
-$totalSessionTime = 73.42;
-$channel = new WaveformGenerator\Channels\FileChannel('customer_channel', 'customer_channel.txt', $totalSessionTime);
+$channel = new WaveformGenerator\Channels\FileChannel('customer_channel', 'customer_channel.txt');
 ```
 
 Create FFMpeg parser (you are able to implement the other silence detectors if there is)
@@ -40,6 +39,7 @@ $parser = new WaveformGenerator\Parsers\FFMpegParser();
 
 Create Converter instance and manage what do you need
 ```
+$totalSessionTime = 73.42; // Total session time from meeting
 $converter = new Converter($parser, $totalSessionTime);
 ```
 
