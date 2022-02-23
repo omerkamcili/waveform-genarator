@@ -10,8 +10,11 @@ use WaveformGenerator\Entity\Talk;
  */
 interface ParserInterface
 {
+
 	/**
+	 * @param ChannelInterface $channel
+	 * @param array $parameters
 	 * @return Talk[]
 	 */
-	public function parse(ChannelInterface $channel): array;
+	public function parse(ChannelInterface $channel, array $parameters): array;
 }

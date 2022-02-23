@@ -16,9 +16,4 @@ interface ChannelInterface
 	 * @return string
 	 */
 	public function getChannelName(): string;
-
-	/**
-	 * @return float
-	 */
-	public function getTotalTime(): float;
 }

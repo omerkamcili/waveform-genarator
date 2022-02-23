@@ -114,8 +114,11 @@ class Converter
 	public function getChannelTalks(string $channelName): array
 	{
 		if (!isset($this->channelTalks[$channelName])) {
+			$parameters = [
+				'totalTime' => $this->getTotalTime()
+			];
 			$channel = $this->getChannel($channelName);
-			$this->channelTalks[$channelName] = $this->parser->parse($channel);
+			$this->channelTalks[$channelName] = $this->parser->parse($channel, $parameters);
 		}
 
 		return $this->channelTalks[$channelName];

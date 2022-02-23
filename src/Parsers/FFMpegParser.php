@@ -18,7 +18,7 @@ class FFMpegParser implements ParserInterface
 	 * @param ChannelInterface $channel
 	 * @return Talk[]
 	 */
-	public function parse(ChannelInterface $channel): array
+	public function parse(ChannelInterface $channel, array $parameters): array
 	{
 		$talks = [];
 		$talk = new Talk(0.00);
@@ -49,7 +49,7 @@ class FFMpegParser implements ParserInterface
 			}
 		}
 
-		$talk->setEnd($channel->getTotalTime());
+		$talk->setEnd($parameters['totalTime']);
 		array_push($talks, $talk);
 
 		return $talks;
